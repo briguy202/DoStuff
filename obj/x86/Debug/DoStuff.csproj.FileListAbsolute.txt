@@ -1,0 +1,14 @@
+E:\Workspaces_vs.com\Main\DoStuff\bin\Debug\DoStuff.exe.config
+E:\Workspaces_vs.com\Main\DoStuff\bin\Debug\DoStuff.exe
+E:\Workspaces_vs.com\Main\DoStuff\bin\Debug\DoStuff.pdb
+E:\Workspaces_vs.com\Main\DoStuff\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\Workspaces_vs.com\Main\DoStuff\obj\x86\Debug\MainWindow.baml
+E:\Workspaces_vs.com\Main\DoStuff\obj\x86\Debug\MainWindow.g.cs
+E:\Workspaces_vs.com\Main\DoStuff\obj\x86\Debug\App.g.cs
+E:\Workspaces_vs.com\Main\DoStuff\obj\x86\Debug\DoStuff_MarkupCompile.cache
+E:\Workspaces_vs.com\Main\DoStuff\obj\x86\Debug\DoStuff.g.resources
+E:\Workspaces_vs.com\Main\DoStuff\obj\x86\Debug\DoStuff.Properties.Resources.resources
+E:\Workspaces_vs.com\Main\DoStuff\obj\x86\Debug\GenerateResource.read.1.tlog
+E:\Workspaces_vs.com\Main\DoStuff\obj\x86\Debug\GenerateResource.write.1.tlog
+E:\Workspaces_vs.com\Main\DoStuff\obj\x86\Debug\DoStuff.exe
+E:\Workspaces_vs.com\Main\DoStuff\obj\x86\Debug\DoStuff.pdb
