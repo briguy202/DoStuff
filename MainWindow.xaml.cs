@@ -17,6 +17,7 @@ using System.Xml;
 using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Net;
+using Newtonsoft.Json;
 
 namespace DoStuff
 {
@@ -229,6 +230,53 @@ namespace DoStuff
 							if (!written.Contains(line)) {
 								output.AppendLine(line);
 								written.Add(line);
+							}
+						}
+					    return output.ToString();
+					}
+				},
+				#endregion
+
+				#region Sum Duplicates
+				new OperationType() {
+					Name = "Sum Duplicates",
+					ID = "sumDuplicates",
+					DefaultSourceDescription = "Text that has duplicate lines.",
+					DefaultSourceValue = "Text\nDifferent\nText",
+					DefaultParametersDescription = "",
+					DefaultParametersValue = "",
+					Execute = (source, iterators, parameters) => {
+						var dummyObject = new[] { new { abo = "" } };
+						JsonConvert.DeserializeAnonymousType(source, dummyObject);
+						StringBuilder output = new StringBuilder();
+						
+
+					    return output.ToString();
+					}
+				},
+				#endregion
+
+				#region Find Matching Rows
+				new OperationType() {
+					Name = "Find Matching Rows",
+					ID = "matchingRows",
+					DefaultSourceDescription = "The text to search",
+					DefaultSourceValue = "Text\nDifferent\nText",
+					DefaultParametersDescription = "",
+					DefaultParametersValue = "",
+					Execute = (source, iterators, parameters) => {
+						StringBuilder output = new StringBuilder();
+						List<string> sourceLines = this.GetLines(source);
+
+						foreach (var line in sourceLines)
+						{
+							foreach (var iterator in this.GetLines(iterators))
+							{
+								if (line.Contains(iterator))
+								{
+									output.AppendLine(line);
+									break;
+								}
 							}
 						}
 					    return output.ToString();
