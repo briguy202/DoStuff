@@ -106,15 +106,23 @@ namespace DoStuff
 					DefaultParametersValue = "leading value%%tailing value",
 					Execute = (source, iterators, parameters) => {
 						StringBuilder output = new StringBuilder();
-						var pieces = parameters.Split(new string[] { "%%" }, StringSplitOptions.None);
+						var parameterPieces = parameters.Split(new string[] { "%%" }, StringSplitOptions.None);
+						var iteratorPieces = iterators.Split(new string[] { "%%" }, StringSplitOptions.None);
+
+						output.Append(iteratorPieces[0]);
+
 						foreach (var sourceLine in this.GetLines(source))
 						{
-							output.Append(pieces[0].Replace("{source}", sourceLine));
+							output.Append(parameterPieces[0].Replace("{source}", sourceLine));
 							output.Append(sourceLine);
-							if (pieces.Length == 2)
-								output.Append(pieces[1].Replace("{source}", sourceLine));
+							if (parameterPieces.Length == 2)
+								output.Append(parameterPieces[1].Replace("{source}", sourceLine));
 							output.AppendLine();
 						}
+
+						if (iteratorPieces.Length == 2)
+							output.Append(iteratorPieces[1]);
+
 					    return output.ToString();
 					}
 				},
@@ -262,17 +270,17 @@ namespace DoStuff
 					ID = "matchingRows",
 					DefaultSourceDescription = "The text to search",
 					DefaultSourceValue = "Text\nDifferent\nText",
-					DefaultParametersDescription = "",
-					DefaultParametersValue = "",
+					DefaultParametersDescription = "The value to search for in a line",
+					DefaultParametersValue = "findme",
 					Execute = (source, iterators, parameters) => {
 						StringBuilder output = new StringBuilder();
 						List<string> sourceLines = this.GetLines(source);
 
 						foreach (var line in sourceLines)
 						{
-							foreach (var iterator in this.GetLines(iterators))
+							foreach (var parameter in this.GetLines(parameters))
 							{
-								if (line.Contains(iterator))
+								if (line.Contains(parameter))
 								{
 									output.AppendLine(line);
 									break;
